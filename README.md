@@ -31,7 +31,7 @@ Alternatively the variables can be set in the environment using env or your CI f
 
 Notice that selenium driver.quit is not required for Capybara tests because Capybara implicitly does so.
 
-To run parallel tests use `parallel_cucumber`instead of cucumber. Add the option -n to specify the number of parallele processes. Add the parallel_tests gem in your Gemfile.
+To run parallel tests use `parallel_cucumber`instead of cucumber. Add the option -n to specify the number of parallel processes. Add the parallel_tests gem in your Gemfile.
 
 To run local testing, set the capability `browserstack.local` in features/support/env.rb to true. 
 
