@@ -1,7 +1,7 @@
-capybara-browserstack
+cucumber-browserstack
 =====================
 
-This repository provides information and helpful tweaks to run your CapyBara tests on the BrowserStack selenium cloud infrastructure.
+This repository provides information and helpful tweaks to run your Cucumber tests on the BrowserStack selenium cloud infrastructure.
 
 ###Configuration
 Add the CapyBara, Cucumber gems into your Gemfile.
@@ -36,6 +36,7 @@ To run parallel tests use `parallel_cucumber`instead of cucumber. Add the option
 To run local testing, set the capability `browserstack.local` in features/support/env.rb to true. 
 
 ###Further Reading
+- [Cucumber](https://cucumber.io/)
 - [CapyBara](http://jnicklas.github.io/capybara/)
 - [BrowserStack documentation for Automate](https://www.browserstack.com/automate/ruby)
 
