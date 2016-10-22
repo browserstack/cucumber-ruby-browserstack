@@ -1,0 +1,18 @@
+server: "hub-cloud.browserstack.com"
+user: "BROWSERSTACK_USERNAME"
+key: "BROWSERSTACK_ACCESS_KEY"
+
+common_caps:
+  "build": "Cucumber-Ruby-BrowserStack"
+  "name": "Parallel Test"
+  "browserstack.debug": true
+
+browser_caps:
+  -
+    "browser": "chrome"
+  -
+    "browser": "firefox"
+  -
+    "browser": "internet explorer"
+  -
+    "browser": "safari"
