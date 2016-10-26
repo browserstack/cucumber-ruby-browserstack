@@ -1,45 +1,30 @@
-cucumber-browserstack
-=====================
+# cucumber-ruby-browserstack
+[Cucumber-Ruby](https://github.com/cucumber/cucumber-ruby) Integration with BrowserStack.
 
-This repository provides information and helpful tweaks to run your Cucumber tests on the BrowserStack selenium cloud infrastructure.
+![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
 
-###Configuration
-Add the CapyBara, Cucumber gems into your Gemfile.
-Run `bundle install`.
+## Setup
+* Clone the repo
+* Install dependencies `bundle install`
+* Update `*.config.yml` files inside the `config/` directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
-###Run tests
-To run the tests, execute:
+### Running your tests
+* To run a single test, run `bundle exec rake single`
+* To run parallel tests, run `bundle exec rake parallel`
+* To run local tests, run `bundle exec rake local`
 
-```bash
-cucumber BS_USERNAME=<username> BS_AUTHKEY=<access-key> SELENIUM_PLATFORM=<platform> SELENIUM_BROWSER=<browser-name>
-```
-or
-```bash
-cucumber BS_USERNAME=<username> BS_AUTHKEY=<access-key> BS_AUTOMATE_OS=<os> BS_AUTOMATE_OS_VERSION=<os-version> SELENIUM_BROWSER=<browser-name>
-```
+## Notes
+* You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
+* To test on a different set of browsers, check out our [platform configurator](https://www.browserstack.com/automate/ruby#setting-os-and-browser)
+* You can export the environment variables for the Username and Access Key of your BrowserStack account
 
-Examples:
-```bash
-cucumber BS_USERNAME=<username> BS_AUTHKEY=<access-key> SELENIUM_PLATFORM=WINDOWS SELENIUM_BROWSER=chrome
-```
-or
-```bash
-cucumber BS_USERNAME=<username> BS_AUTHKEY=<access-key> BS_AUTOMATE_OS="OS X" BS_AUTOMATE_OS_VERSION="Mountain Lion" SELENIUM_BROWSER="chrome"
-```
+  ```
+  export BROWSERSTACK_USERNAME=<browserstack-username> &&
+  export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
+  ```
 
-Alternatively the variables can be set in the environment using env or your CI framework (like Travis or Jenkins)
-
-Notice that selenium driver.quit is not required for Capybara tests because Capybara implicitly does so.
-
-To run parallel tests use `parallel_cucumber`instead of cucumber. Add the option -n to specify the number of parallel processes. Add the parallel_tests gem in your Gemfile.
-
-To run local testing, set the capability `browserstack.local` in features/support/env.rb to true. 
-
-###Further Reading
-- [Cucumber](https://cucumber.io/)
-- [CapyBara](http://jnicklas.github.io/capybara/)
-- [BrowserStack documentation for Automate](https://www.browserstack.com/automate/ruby)
-
-Happy Testing!
-
-
+## Additional Resources
+* [Documentation for writing Automate test scripts in Ruby](https://www.browserstack.com/automate/ruby)
+* [Customizing your tests on BrowserStack](https://www.browserstack.com/automate/capabilities)
+* [Browsers & mobile devices for selenium testing on BrowserStack](https://www.browserstack.com/list-of-browsers-and-platforms?product=automate)
+* [Using REST API to access information about your tests via the command-line interface](https://www.browserstack.com/automate/rest-api)

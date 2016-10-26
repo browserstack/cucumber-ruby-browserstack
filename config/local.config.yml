@@ -1,0 +1,14 @@
+server: "hub-cloud.browserstack.com"
+user: "BROWSERSTACK_USERNAME"
+key: "BROWSERSTACK_ACCESS_KEY"
+
+common_caps:
+  "build": "Cucumber-Ruby-BrowserStack"
+  "name": "Local Test"
+  "browserstack.debug": true
+
+browser_caps:
+  -
+    "browser": "chrome"
+    "os": "OS X"
+    "browserstack.local": true

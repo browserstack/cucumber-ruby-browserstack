@@ -1,8 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'cucumber'
-gem 'capybara'
-gem 'selenium-webdriver'
+gem 'rake'
 gem 'rspec'
+gem 'cucumber'
+gem 'selenium-webdriver'
 gem 'browserstack-local'
-gem 'parallel_tests'
