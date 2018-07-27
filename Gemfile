@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'cucumber'
+gem 'cucumber', '1.3.18'
 gem 'capybara'
 gem 'selenium-webdriver'
 gem 'rspec'
