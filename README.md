@@ -24,7 +24,7 @@ cucumber BS_USERNAME=<username> BS_AUTHKEY=<access-key> SELENIUM_PLATFORM=WINDOW
 ```
 or
 ```bash
-cucumber BS_USERNAME=<username> BS_AUTHKEY=<access-key> BS_AUTOMATE_OS="OS X" BS_AUTOMATE_OS_VERSION="Mountain Lion" SELENIUM_BROWSER="chrome"
+cucumber BS_USERNAME=<username> BS_AUTHKEY=<access-key> BS_AUTOMATE_OS="OS X" BS_AUTOMATE_OS_VERSION="Mojave" SELENIUM_BROWSER="chrome"
 ```
 
 Alternatively the variables can be set in the environment using env or your CI framework (like Travis or Jenkins)
