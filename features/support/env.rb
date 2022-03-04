@@ -5,30 +5,42 @@ require 'browserstack/local'
 url = "http://#{ENV['BS_USERNAME']}:#{ENV['BS_AUTHKEY']}@hub.browserstack.com/wd/hub"
 
 Capybara.register_driver :browserstack do |app|
+  caps = {
+    'bstack:options' => {
+    "os" => "OS X",
+    "osVersion" => "Catalina",
+    "local" => "false",
+    "seleniumVersion" => "3.14.0",
+    },
+    "browserName" => "Safari",
+    "browserVersion" => "13.0",
+  }    
+  browser = 'chrome'
+  if(ENV['SELENIUM_BROWSER']) 
+	  browser = ENV['SELENIUM_BROWSER'].downcase
+  end
+  options = Selenium::WebDriver::Options.send(browser)
+  options.browser_version = 'latest'
 
-  capabilities = Selenium::WebDriver::Remote::Capabilities.new
+  capabilities = {}
 	if ENV['BS_AUTOMATE_OS']
 		capabilities['os'] = ENV['BS_AUTOMATE_OS']
-		capabilities['os_version'] = ENV['BS_AUTOMATE_OS_VERSION']
-	else
-		capabilities['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
+		capabilities['osVersion'] = ENV['BS_AUTOMATE_OS_VERSION']
 	end
 
-	capabilities['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
-	capabilities['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
-	capabilities['browserstack.debug'] = 'true'
-	capabilities['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
-	capabilities['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']      
-  capabilities['browserstack.local'] = 'false'      
-
-  if capabilities['browserstack.local'] && capabilities['browserstack.local'] == 'true';
+	options.browser_version = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
+	capabilities['debug'] = 'true'
+	capabilities['sessionName'] = ENV['BS_AUTOMATE_SESSION'] if ENV['BS_AUTOMATE_SESSION']
+	capabilities['buildName'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']      
+  capabilities['local'] = ENV['BS_AUTOMATE_LOCAL'] || 'false'      
+  capabilities['seleniumVersion'] = '4.1.0'
+  if capabilities['local'] == 'true';
     @bs_local = BrowserStack::Local.new
     bs_local_args = { "key" => "#{ENV['BS_AUTHKEY']}", "forcelocal" => true }
     @bs_local.start(bs_local_args)
   end
-  Capybara::Selenium::Driver.new(app, :browser => :remote, :url => url, :desired_capabilities => capabilities)
-
-
+  options.add_option('bstack:options', capabilities)
+  Capybara::Selenium::Driver.new(app, :browser => :remote, :url => url, :capabilities => options)
 end
 
 Capybara.default_driver = :browserstack

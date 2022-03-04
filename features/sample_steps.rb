@@ -1,18 +1,21 @@
 Given /^I am on (.+)$/ do |url|
-  visit "/"
+  visit "https://www.bstackdemo.com/"
 end
  
-When /^I fill in "([^"]*)" found by "([^"]*)" with "([^"]*)"$/ do |value, type, keys|
-  fill_in(value, :with => keys)
+When "Click on add to cart button" do 
+  expect(title).to eq("StackDemo")
+  # Get product text
+  @productOnPageText = find(:xpath, '//*[@id="1"]/p').text
+
+  # Click on add to cart button
+  find(:xpath, '//*[@id="1"]/div[4]').click
 end
  
-When /^I submit$/ do
-  find_field('q').native.send_key(:enter)
+Then "I should see the cart open and product added to it" do
+  # If cart is open or not
+  find(:xpath, '//*[@class="float-cart__content"]').visible?
+
+  # Get product text
+  @productOnCartText = find(:xpath, '//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]').text
+  expect(@productOnCartText).to eq(@productOnPageText)
 end
- 
-Then /^I should see title "([^"]*)"$/ do |title|
-  expect(page).to have_title title
-end
-
-
-
