@@ -1,5 +1,5 @@
 Given /^I am on (.+)$/ do |url|
-  visit "https://www.bstackdemo.com/"
+  visit url
 end
  
 When "Click on add to cart button" do 

@@ -1,6 +1,8 @@
 require 'selenium/webdriver'
 require 'capybara/cucumber'
 require 'browserstack/local'
+require 'browserstack-automate'
+BrowserStack.for "cucumber"
 
 url = "http://#{ENV['BS_USERNAME']}:#{ENV['BS_AUTHKEY']}@hub.browserstack.com/wd/hub"
 
