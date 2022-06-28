@@ -1,8 +1,8 @@
-Given /^I am on (.+)$/ do |url|
+Given "I visit bstackdemo website" do
   visit "https://www.bstackdemo.com/"
 end
  
-When "Click on add to cart button" do 
+When "I add a product to the cart" do 
   expect(title).to eq("StackDemo")
   # Get product text
   @productOnPageText = find(:xpath, '//*[@id="1"]/p').text
@@ -11,7 +11,7 @@ When "Click on add to cart button" do
   find(:xpath, '//*[@id="1"]/div[4]').click
 end
  
-Then "I should see the cart open and product added to it" do
+Then "I should see same product in cart section" do
   # If cart is open or not
   find(:xpath, '//*[@class="float-cart__content"]').visible?
 
