@@ -33,9 +33,10 @@ Capybara.register_driver :browserstack do |app|
 	options.browser_version = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 	capabilities['debug'] = 'true'
 	capabilities['sessionName'] = ENV['BS_AUTOMATE_SESSION'] if ENV['BS_AUTOMATE_SESSION']
-	capabilities['buildName'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']      
+	capabilities['buildName'] = ENV['BS_AUTOMATE_BUILD'] ? ENV['BS_AUTOMATE_BUILD'] : 'browserstack-build-1'
   capabilities['local'] = ENV['BS_AUTOMATE_LOCAL'] || 'false'      
   capabilities['seleniumVersion'] = '4.1.0'
+  capabilities['source'] = 'cucumber-ruby:sample-selenium-4:v1.0'
   if capabilities['local'] == 'true';
     @bs_local = BrowserStack::Local.new
     bs_local_args = { "key" => "#{ENV['BS_AUTHKEY']}", "forcelocal" => true }
