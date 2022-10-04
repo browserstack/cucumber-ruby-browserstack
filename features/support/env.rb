@@ -20,8 +20,9 @@ Capybara.register_driver :browserstack do |app|
 	capabilities['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 	capabilities['browserstack.debug'] = 'true'
 	capabilities['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
-	capabilities['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']      
-  capabilities['browserstack.local'] = 'false'      
+	capabilities['build'] = ENV['BS_AUTOMATE_BUILD']? ENV['BS_AUTOMATE_BUILD'] : 'browserstack-build-1'
+  capabilities['browserstack.local'] = 'false'
+  capabilities['browserstack.source'] = 'cucumber-ruby:sample-master:v1.0'     
 
   if capabilities['browserstack.local'] && capabilities['browserstack.local'] == 'true';
     @bs_local = BrowserStack::Local.new
