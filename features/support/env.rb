@@ -4,7 +4,7 @@ require 'browserstack/local'
 require 'browserstack-automate'
 BrowserStack.for "cucumber"
 
-url = "http://#{ENV['BS_USERNAME']}:#{ENV['BS_AUTHKEY']}@hub.browserstack.com/wd/hub"
+url = "https://#{ENV['BS_USERNAME']}:#{ENV['BS_AUTHKEY']}@hub.browserstack.com/wd/hub"
 
 Capybara.register_driver :browserstack do |app|
   caps = {
