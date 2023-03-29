@@ -18,17 +18,9 @@ task :parallel do |_t, _args|
 
   Parallel.map([*1..@num_parallel], in_processes: @num_parallel) do |task_id|
     ENV['TASK_ID'] = (task_id - 1).to_s
-    ENV['name'] = 'parallel_test'
     ENV['CONFIG_NAME'] = 'parallel'
 
     Rake::Task['single'].invoke
     Rake::Task['single'].reenable
   end
-end
-
-task :test do |_t, _args|
-  Rake::Task['single'].invoke
-  Rake::Task['single'].reenable
-  Rake::Task['local'].invoke
-  Rake::Task['parallel'].invoke
 end
