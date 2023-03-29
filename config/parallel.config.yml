@@ -1,0 +1,24 @@
+server: hub.browserstack.com
+user: BROWSERSTACK_USERNAME
+key: BROWSERSTACK_ACCESS_KEY
+
+common_caps:
+  bstack:options:
+    buildName: browserstack-build-1
+    sessionName: BStack parallel cucumber-ruby
+    projectName: BrowserStack Samples
+    source: cucumber-ruby:sample-selenium-4:v1.1
+    debug: true
+    useW3C: true
+
+browser_caps:
+  -
+    "browser": "chrome"
+  -
+    "browser": "firefox"
+  -
+    "browser": "edge"
+  -
+    "browser": "safari"
+    "os": "OS X"
+    "osVersion": "Big Sur"
