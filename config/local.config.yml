@@ -1,0 +1,19 @@
+server: hub.browserstack.com
+user: BROWSERSTACK_USERNAME
+key: BROWSERSTACK_ACCESS_KEY
+
+common_caps:
+  bstack:options:
+    os: OS X
+    buildName: browserstack-build-1
+    osVersion: Mojave
+    sessionName: BStack local cucumber-ruby
+    projectName: BrowserStack Samples
+    source: cucumber-ruby:sample-selenium-4:v1.1
+    debug: true
+    local: true
+    useW3C: true
+
+browser_caps:
+  - browserName: Chrome
+    browserVersion: 'latest'
