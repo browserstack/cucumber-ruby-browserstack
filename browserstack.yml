@@ -1,0 +1,29 @@
+userName: YOUR_BROWSERSTACK_USERNAME   # or use BROWSERSTACK_USERNAME env var
+accessKey: YOUR_BROWSERSTACK_ACCESS_KEY # or use BROWSERSTACK_ACCESS_KEY env var
+
+projectName: BStack cucumber-ruby
+buildName: browserstack-build-1
+
+browsers:
+  - browserName: chrome
+    browserVersion: latest
+    os: Windows
+    osVersion: 11
+  - browserName: firefox
+    browserVersion: latest
+    os: Windows
+    osVersion: 11
+  - browserName: edge
+    browserVersion: latest
+    os: Windows
+    osVersion: 11
+  - browserName: safari
+    browserVersion: latest
+    os: OS X
+    osVersion: Ventura
+
+debug: true
+
+parallelsPerPlatform: 1
+
+browserStackLocal: false  # set to true for local testing

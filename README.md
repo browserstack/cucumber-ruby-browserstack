@@ -1,26 +1,43 @@
 cucumber-browserstack
 =====================
+![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
 
-This repository provides information and helpful tweaks to run your Cucumber tests on the BrowserStack selenium cloud infrastructure.
+Code samples to get started with Cucumber tests on BrowserStack Automate using the **BrowserStack Ruby SDK**.
 
 ## Setup
-* Clone the repo
-* Install dependencies `bundle install`
-* To test various sample repositories with ease, it is recommended to setup `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY` environment variables. Alternatively you can directly update `*.config.yml` files inside the `config/` directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
-### Running your tests
-* To run tests, run `bundle exec rake parallel`
-* To run local tests, run `bundle exec rake local`
+### Requirements
 
- Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
+1. Ruby: If you don't have Ruby installed, follow the instructions given [here](https://www.ruby-lang.org/en/documentation/installation/)
+2. Bundler: If you don't have Bundler installed, follow the instructions given [here](https://bundler.io/)
 
-Alternatively the variables can be set in the environment using env or your CI framework (like Travis or Jenkins)
+### Install the dependencies
 
-Notice that selenium driver.quit is not required for Capybara tests because Capybara implicitly does so.
+```sh
+bundle install
+```
 
-###Further Reading
-- [Cucumber](https://cucumber.io/)
-- [CapyBara](http://jnicklas.github.io/capybara/)
-- [BrowserStack documentation for Automate](https://www.browserstack.com/automate/ruby)
+---
 
-Happy Testing!
+## Configuration
+
+### 1. Set up `browserstack.yml`
+
+All BrowserStack configuration is managed through a single `browserstack.yml` file at the root of the repository.
+
+Set parallels.
+
+browserStackLocal: false  # set to true for local testing.
+```
+
+## Running your tests
+
+All tests are run from the repo root. The same command is used for all run types — behaviour is controlled entirely by `browserstack.yml`:
+
+```sh
+bundle exec browserstack-sdk exec cucumber features/sample.feature
+```
+
+> **Tip:** Instead of hardcoding credentials, set `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY` as environment variables.
+
+### 2.
