@@ -1,0 +1,9 @@
+# verification harness — not for customers
+verify.rb
+verify.log
+log/
+*.log
+.bundle/
+vendor/bundle/
+browserstack.yml.bak
+.verify_creds.sh

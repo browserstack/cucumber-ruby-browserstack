@@ -1,26 +1,33 @@
 require 'rake'
-require 'parallel'
-require 'cucumber/rake/task'
+require 'fileutils'
 
-Cucumber::Rake::Task.new(:single) do |task|
-  ENV['CONFIG_NAME'] ||= 'single'
-  task.cucumber_opts = ['--format=pretty', 'features/sample.feature']
+SDK_CMD = 'bundle exec browserstack-sdk exec cucumber features/sample.feature'.freeze
+
+# Run with the alternate config at config/<name>.yml. The SDK only reads
+# ./browserstack.yml, so we swap it in for the duration of the run and
+# restore the parallel default afterwards (even on failure).
+def run_with_config(alt_path)
+  raise "missing #{alt_path}" unless File.exist?(alt_path)
+  FileUtils.cp('browserstack.yml', 'browserstack.yml.bak')
+  FileUtils.cp(alt_path, 'browserstack.yml')
+  sh SDK_CMD
+ensure
+  FileUtils.mv('browserstack.yml.bak', 'browserstack.yml') if File.exist?('browserstack.yml.bak')
 end
 
-task default: :single
+task default: :parallel
 
-Cucumber::Rake::Task.new(:local) do |task|
-  task.cucumber_opts = ['--format=pretty', 'features/sample.feature', 'CONFIG_NAME=local']
+# Parallel run: uses the committed browserstack.yml (4 platforms).
+task :parallel do
+  sh SDK_CMD
 end
 
-task :parallel do |_t, _args|
-  @num_parallel = 4
+# Single run: 1 platform.
+task :single do
+  run_with_config('config/browserstack.single.yml')
+end
 
-  Parallel.map([*1..@num_parallel], in_processes: @num_parallel) do |task_id|
-    ENV['TASK_ID'] = (task_id - 1).to_s
-    ENV['CONFIG_NAME'] = 'parallel'
-
-    Rake::Task['single'].invoke
-    Rake::Task['single'].reenable
-  end
+# Local run: 1 platform + BrowserStack Local tunnel.
+task :local do
+  run_with_config('config/browserstack.local.yml')
 end

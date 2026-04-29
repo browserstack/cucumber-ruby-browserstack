@@ -1,0 +1,27 @@
+# Local-tunnel variant of browserstack.yml — for testing internal/staging hosts.
+# `bundle exec rake local` copies this file to ./browserstack.yml before running.
+# The SDK starts and stops the BrowserStack Local tunnel for you when
+# `browserstackLocal: true` is set.
+userName: YOUR_USERNAME
+accessKey: YOUR_ACCESS_KEY
+
+projectName: BrowserStack Samples
+buildName: cucumber-ruby-sdk-build-1
+buildIdentifier: '#${BUILD_NUMBER}'
+
+framework: cucumber
+
+platforms:
+  - os: Windows
+    osVersion: 11
+    browserName: chrome
+    browserVersion: latest
+
+parallelsPerPlatform: 1
+browserstackLocal: true
+
+debug: true
+networkLogs: false
+consoleLogs: errors
+
+source: cucumber-ruby-sdk:sample-master:v1.0

@@ -1,101 +1,277 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
-    browserstack-automate (0.1.0)
-      browserstack-local (~> 1.2)
-      curb (~> 0)
-      selenium-webdriver
-    browserstack-local (1.3.0)
-    builder (3.2.4)
-    capybara (3.15.1)
+    addressable (2.9.0)
+      public_suffix (>= 2.0.2, < 8.0)
+    base64 (0.3.0)
+    bigdecimal (4.1.2)
+    browserstack-ruby-sdk (0.4.2)
+      fiddle
+      git (~> 1.18)
+      grpc (~> 1.50)
+      httparty (~> 0.24)
+      json (~> 2.6)
+      ostruct
+      parallel_tests (~> 3.0)
+      selenium-webdriver (>= 3.0, < 5.0)
+    builder (3.3.0)
+    capybara (3.40.0)
       addressable
+      matrix
       mini_mime (>= 0.1.3)
-      nokogiri (~> 1.8)
+      nokogiri (~> 1.11)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
-      regexp_parser (~> 1.2)
+      regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    childprocess (3.0.0)
-    cucumber (8.0.0)
-      builder (~> 3.2, >= 3.2.4)
-      cucumber-ci-environment (~> 9.0, >= 9.0.4)
-      cucumber-core (~> 11.0, >= 11.0.0)
-      cucumber-cucumber-expressions (~> 15.1, >= 15.1.1)
-      cucumber-gherkin (~> 23.0, >= 23.0.1)
-      cucumber-html-formatter (~> 19.1, >= 19.1.0)
-      cucumber-messages (~> 18.0, >= 18.0.0)
-      diff-lcs (~> 1.5, >= 1.5.0)
-      mime-types (~> 3.4, >= 3.4.1)
-      multi_test (~> 1.1, >= 1.1.0)
-      sys-uname (~> 1.2, >= 1.2.2)
-    cucumber-ci-environment (9.0.4)
-    cucumber-core (11.0.0)
-      cucumber-gherkin (~> 23.0, >= 23.0.1)
-      cucumber-messages (~> 18.0, >= 18.0.0)
-      cucumber-tag-expressions (~> 4.1, >= 4.1.0)
-    cucumber-cucumber-expressions (15.2.0)
-    cucumber-gherkin (23.0.1)
-      cucumber-messages (~> 18.0, >= 18.0.0)
-    cucumber-html-formatter (19.2.0)
-      cucumber-messages (~> 18.0, >= 18.0.0)
-    cucumber-messages (18.0.0)
-    cucumber-tag-expressions (4.1.0)
-    curb (0.9.11)
-    diff-lcs (1.5.0)
-    ffi (1.15.5)
-    mime-types (3.4.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2022.0105)
-    mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    csv (3.3.5)
+    cucumber (11.0.0)
+      base64 (~> 0.2)
+      builder (~> 3.2)
+      cucumber-ci-environment (> 9, < 12)
+      cucumber-core (>= 16.2.0, < 17)
+      cucumber-cucumber-expressions (> 17, < 20)
+      cucumber-html-formatter (> 21, < 24)
+      diff-lcs (~> 1.5)
+      logger (~> 1.6)
+      mini_mime (~> 1.1)
+      multi_test (~> 1.1)
+      sys-uname (~> 1.5)
+    cucumber-ci-environment (11.0.0)
+    cucumber-core (16.2.0)
+      cucumber-gherkin (> 36, < 40)
+      cucumber-messages (> 31, < 33)
+      cucumber-tag-expressions (> 6, < 9)
+    cucumber-cucumber-expressions (19.0.0)
+      bigdecimal
+    cucumber-gherkin (39.0.0)
+      cucumber-messages (>= 31, < 33)
+    cucumber-html-formatter (23.1.0)
+      cucumber-messages (> 23, < 33)
+    cucumber-messages (32.3.1)
+    cucumber-tag-expressions (8.1.0)
+    diff-lcs (1.6.2)
+    ffi (1.17.4-aarch64-linux-gnu)
+    ffi (1.17.4-aarch64-linux-musl)
+    ffi (1.17.4-arm-linux-gnu)
+    ffi (1.17.4-arm-linux-musl)
+    ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
+    ffi (1.17.4-x86_64-linux-musl)
+    fiddle (1.1.8)
+    git (1.19.1)
+      addressable (~> 2.8)
+      rchardet (~> 1.8)
+    google-protobuf (4.34.1)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.34.1-aarch64-linux-gnu)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.34.1-aarch64-linux-musl)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.34.1-arm64-darwin)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.34.1-x86_64-darwin)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.34.1-x86_64-linux-gnu)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.34.1-x86_64-linux-musl)
+      bigdecimal
+      rake (~> 13.3)
+    googleapis-common-protos-types (1.22.0)
+      google-protobuf (~> 4.26)
+    grpc (1.80.0)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.80.0-aarch64-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.80.0-aarch64-linux-musl)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.80.0-arm64-darwin)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.80.0-x86_64-darwin)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.80.0-x86_64-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.80.0-x86_64-linux-musl)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    httparty (0.24.2)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
+    json (2.19.4)
+    logger (1.7.0)
+    matrix (0.4.3)
+    memoist3 (1.0.0)
+    mini_mime (1.1.5)
     multi_test (1.1.0)
-    nokogiri (1.10.9)
-      mini_portile2 (~> 2.4.0)
-    parallel (1.19.1)
-    parallel_tests (2.31.0)
+    multi_xml (0.8.1)
+      bigdecimal (>= 3.1, < 5)
+    nokogiri (1.19.3-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.3-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.19.3-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.3-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.19.3-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.3-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.3-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.3-x86_64-linux-musl)
+      racc (~> 1.4)
+    ostruct (0.6.3)
+    parallel (2.1.0)
+    parallel_tests (3.13.0)
       parallel
-    public_suffix (4.0.3)
-    rack (2.2.2)
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
-    rake (13.0.6)
-    regexp_parser (1.7.0)
-    rspec (3.9.0)
-      rspec-core (~> 3.9.0)
-      rspec-expectations (~> 3.9.0)
-      rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.1)
-      rspec-support (~> 3.9.1)
-    rspec-expectations (3.9.0)
+    public_suffix (7.0.5)
+    racc (1.8.1)
+    rack (3.2.6)
+    rack-test (2.2.0)
+      rack (>= 1.3)
+    rake (13.4.2)
+    rchardet (1.10.0)
+    regexp_parser (2.12.0)
+    rexml (3.4.4)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.1)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-support (3.9.2)
-    rubyzip (1.3.0)
-    selenium-webdriver (3.142.7)
-      childprocess (>= 0.5, < 4.0)
-      rubyzip (>= 1.2.2)
-    sys-uname (1.2.2)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.7)
+    rubyzip (3.2.2)
+    selenium-webdriver (4.43.0)
+      base64 (~> 0.2)
+      logger (~> 1.4)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 4.0)
+      websocket (~> 1.0)
+    sys-uname (1.5.1)
       ffi (~> 1.1)
+      memoist3 (~> 1.0.0)
+    websocket (1.2.11)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  x86_64-darwin
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
-  browserstack-automate
-  browserstack-local
+  browserstack-ruby-sdk
   capybara
   cucumber
-  parallel_tests
   rake
   rspec
-  selenium-webdriver
+  selenium-webdriver (~> 4.22)
+
+CHECKSUMS
+  addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
+  base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
+  bigdecimal (4.1.2) sha256=53d217666027eab4280346fba98e7d5b66baaae1b9c3c1c0ffe89d48188a3fbd
+  browserstack-ruby-sdk (0.4.2) sha256=cf1807b5468c0b16c8350f1a1642b1b6f3eb2579144c2834d94536d60d16646c
+  builder (3.3.0) sha256=497918d2f9dca528fdca4b88d84e4ef4387256d984b8154e9d5d3fe5a9c8835f
+  capybara (3.40.0) sha256=42dba720578ea1ca65fd7a41d163dd368502c191804558f6e0f71b391054aeef
+  csv (3.3.5) sha256=6e5134ac3383ef728b7f02725d9872934f523cb40b961479f69cf3afa6c8e73f
+  cucumber (11.0.0) sha256=14bb964cc172999e9010fece2fad9f104044b055b3199230091894637a2a784c
+  cucumber-ci-environment (11.0.0) sha256=0df79a9e1d0b015b3d9def680f989200d96fef206f4d19ccf86a338c4f71d1e2
+  cucumber-core (16.2.0) sha256=592b58a95cf42feef8e5a349f68e363784ba3b6568ffbcf6776e38e136cf970b
+  cucumber-cucumber-expressions (19.0.0) sha256=33208ff204732ac9bed42b46993a0a243054f71ece08579d57e53df6a1c9d93a
+  cucumber-gherkin (39.0.0) sha256=46f51d87e910f41c3c5cee3b500028ca2b2e7149a413a8280b9a58cee2593e55
+  cucumber-html-formatter (23.1.0) sha256=7789b4a792c876394b9604aeb66aa5cf4c61514473b7e712c76d5eaedcdd8cdf
+  cucumber-messages (32.3.1) sha256=ddc88e4c1cf7afb96c06005b92a4a6f221a2fa435a8b4ca04677d215fd82771c
+  cucumber-tag-expressions (8.1.0) sha256=9bd8c4b6654f8e5bf2a9c99329b6f32136a75e50cd39d4cfb3927d0fa9f52e21
+  diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
+  ffi (1.17.4-aarch64-linux-gnu) sha256=b208f06f91ffd8f5e1193da3cae3d2ccfc27fc36fba577baf698d26d91c080df
+  ffi (1.17.4-aarch64-linux-musl) sha256=9286b7a615f2676245283aef0a0a3b475ae3aae2bb5448baace630bb77b91f39
+  ffi (1.17.4-arm-linux-gnu) sha256=d6dbddf7cb77bf955411af5f187a65b8cd378cb003c15c05697f5feee1cb1564
+  ffi (1.17.4-arm-linux-musl) sha256=9d4838ded0465bef6e2426935f6bcc93134b6616785a84ffd2a3d82bc3cf6f95
+  ffi (1.17.4-arm64-darwin) sha256=19071aaf1419251b0a46852abf960e77330a3b334d13a4ab51d58b31a937001b
+  ffi (1.17.4-x86_64-darwin) sha256=aa70390523cf3235096cf64962b709b4cfbd5c082a2cb2ae714eb0fe2ccda496
+  ffi (1.17.4-x86_64-linux-gnu) sha256=9d3db14c2eae074b382fa9c083fe95aec6e0a1451da249eab096c34002bc752d
+  ffi (1.17.4-x86_64-linux-musl) sha256=3fdf9888483de005f8ef8d1cf2d3b20d86626af206cbf780f6a6a12439a9c49e
+  fiddle (1.1.8) sha256=7fa8ee3627271497f3add5503acdbc3f40b32f610fc1cf49634f083ef3f32eee
+  git (1.19.1) sha256=b0a422d9f6517353c48a330d6114de4db9e0c82dbe7202964a1d9f1fbc827d70
+  google-protobuf (4.34.1) sha256=347181542b8d659c60f028fa3791c9cccce651a91ad27782dbc5c5e374796cdc
+  google-protobuf (4.34.1-aarch64-linux-gnu) sha256=f9c07607dc139c895f2792a7740fcd01cd94d4d7b0e0a939045b50d7999f0b1d
+  google-protobuf (4.34.1-aarch64-linux-musl) sha256=db58e5a4a492b43c6614486aea31b7fb86955b175d1d48f28ebf388f058d78a9
+  google-protobuf (4.34.1-arm64-darwin) sha256=2745061f973119e6e7f3c81a0c77025d291a3caa6585a2cd24a25bbc7bedb267
+  google-protobuf (4.34.1-x86_64-darwin) sha256=4dc498376e218871613589c4d872400d42ad9ae0c700bdb2606fe1c77a593075
+  google-protobuf (4.34.1-x86_64-linux-gnu) sha256=87088c9fd8e47b5b40ca498fc1195add6149e941ff7e81c532a5b0b8876d4cc9
+  google-protobuf (4.34.1-x86_64-linux-musl) sha256=8c0e91436fbe504ffc64f0bd621f2e69adbcce8ed2c58439d7a21117069cfdd7
+  googleapis-common-protos-types (1.22.0) sha256=f97492b77bd6da0018c860d5004f512fe7cd165554d7019a8f4df6a56fbfc4c7
+  grpc (1.80.0) sha256=2ded0c8bc3a1f3d34b8c790e00dd0120768ba0e9f9fd841e1dc67f7a2566d07d
+  grpc (1.80.0-aarch64-linux-gnu) sha256=1c15048887224575cb38026fea5b9abb14ae955bfce8beb0701e0946959a8520
+  grpc (1.80.0-aarch64-linux-musl) sha256=9568f17e848d873fffd27351d4d1c918ea621e901b3dfcd62d7ff86dbae286a3
+  grpc (1.80.0-arm64-darwin) sha256=c4b5871ad7673c526b64e54e70a99d84e35e2c26a1fc9a91f9c3341c7821e0c7
+  grpc (1.80.0-x86_64-darwin) sha256=4484d1280a43f94e8f1ab6ae53d282a4832f8ffb61b6996f43fc50716f464f1c
+  grpc (1.80.0-x86_64-linux-gnu) sha256=25ba8beb5438152fb60656161dc729c1258c6963ec568361f601e19b2fb7ac23
+  grpc (1.80.0-x86_64-linux-musl) sha256=15a62e816c690bece9f5fd320a4b61aa735a2390daa8141596672a6e820ff342
+  httparty (0.24.2) sha256=8fca6a54aa0c4aa4303a0fd33e5e2156175d6a5334f714263b458abd7fda9c38
+  json (2.19.4) sha256=670a7d333fb3b18ca5b29cb255eb7bef099e40d88c02c80bd42a3f30fe5239ac
+  logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
+  matrix (0.4.3) sha256=a0d5ab7ddcc1973ff690ab361b67f359acbb16958d1dc072b8b956a286564c5b
+  memoist3 (1.0.0) sha256=686e42402cf150a362050c23143dc57b0ef88f8c344943ff8b7845792b50d56f
+  mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
+  multi_test (1.1.0) sha256=e9e550cdd863fb72becfe344aefdcd4cbd26ebf307847f4a6c039a4082324d10
+  multi_xml (0.8.1) sha256=addba0290bac34e9088bfe73dc4878530297a82a7bbd66cb44dcd0a4b86edf5a
+  nokogiri (1.19.3-aarch64-linux-gnu) sha256=46b89e5d7b9e844c2ee360794240c6ea2a4e6fa0c5892a4ed487db621224b639
+  nokogiri (1.19.3-aarch64-linux-musl) sha256=8392dfdcd21be7a94dbbe9ccc138dea01b97b24cb2dc02a114ca98bfb1d9a0b7
+  nokogiri (1.19.3-arm-linux-gnu) sha256=3919d5ffc334ad778a4a9eb88fda7dcb8b1fb58c8a52ac640c6dcd2f038e774f
+  nokogiri (1.19.3-arm-linux-musl) sha256=9ce1cb6346bb9c67b1550eb537aa183ead91e4b6eadb2f36ade02d8dd2a79fb6
+  nokogiri (1.19.3-arm64-darwin) sha256=71b9bd424b1b7abc18b05052a1a3cfd3627abdca62be280854cc411791357e42
+  nokogiri (1.19.3-x86_64-darwin) sha256=77f3fba57d46c53ab31e62fc6c28f705109d1bf6264356c76f132b2be5728d4d
+  nokogiri (1.19.3-x86_64-linux-gnu) sha256=2f5078620fe12e83669b5b17311b32532a8153d02eee7ad06948b926d6080976
+  nokogiri (1.19.3-x86_64-linux-musl) sha256=248c906d2166eca5efb56d52fdee5f9a1f51d69a72e2b64fdac647b4ce39ea3f
+  ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
+  parallel (2.1.0) sha256=b35258865c2e31134c5ecb708beaaf6772adf9d5efae28e93e99260877b09356
+  parallel_tests (3.13.0) sha256=1dd5a114b52886d677c7536a04d383d0770a1de76519e8bd4645bf0f8f0b8701
+  public_suffix (7.0.5) sha256=1a8bb08f1bbea19228d3bed6e5ed908d1cb4f7c2726d18bd9cadf60bc676f623
+  racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
+  rack (3.2.6) sha256=5ed78e1f73b2e25679bec7d45ee2d4483cc4146eb1be0264fc4d94cb5ef212c2
+  rack-test (2.2.0) sha256=005a36692c306ac0b4a9350355ee080fd09ddef1148a5f8b2ac636c720f5c463
+  rake (13.4.2) sha256=cb825b2bd5f1f8e91ca37bddb4b9aaf345551b4731da62949be002fa89283701
+  rchardet (1.10.0) sha256=d5ea2ed61a720a220f1914778208e718a0c7ed2a484b6d357ba695aa7001390f
+  regexp_parser (2.12.0) sha256=35a916a1d63190ab5c9009457136ae5f3c0c7512d60291d0d1378ba18ce08ebb
+  rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
+  rspec (3.13.2) sha256=206284a08ad798e61f86d7ca3e376718d52c0bc944626b2349266f239f820587
+  rspec-core (3.13.6) sha256=a8823c6411667b60a8bca135364351dda34cd55e44ff94c4be4633b37d828b2d
+  rspec-expectations (3.13.5) sha256=33a4d3a1d95060aea4c94e9f237030a8f9eae5615e9bd85718fe3a09e4b58836
+  rspec-mocks (3.13.8) sha256=086ad3d3d17533f4237643de0b5c42f04b66348c28bf6b9c2d3f4a3b01af1d47
+  rspec-support (3.13.7) sha256=0640e5570872aafefd79867901deeeeb40b0c9875a36b983d85f54fb7381c47c
+  rubyzip (3.2.2) sha256=c0ed99385f0625415c8f05bcae33fe649ed2952894a95ff8b08f26ca57ea5b3c
+  selenium-webdriver (4.43.0) sha256=a634377b964b701c6ac0a009ce3a08fa34ec1e1e7fe9a6d57e3088d14529a65c
+  sys-uname (1.5.1) sha256=784d7e6491b0393c25cbbe5ac38324ac7be9fda083a6094832648af669386d7b
+  websocket (1.2.11) sha256=b7e7a74e2410b5e85c25858b26b3322f29161e300935f70a0e0d3c35e0462737
+  xpath (3.2.0) sha256=6dfda79d91bb3b949b947ecc5919f042ef2f399b904013eb3ef6d20dd3a4082e
 
 BUNDLED WITH
-   1.17.3
+  4.0.5
